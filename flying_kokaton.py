@@ -30,26 +30,27 @@ def main():
         screen.blit(bg_img2, [-x + 1600, 0])
         screen.blit(bg_img, [-x + 3200, 0])
 
-        # ---- ここから移動処理 ----
+        
         key = pg.key.get_pressed()
 
-        # 背景スクロール速度（＝こうかとんが押されて左に流れる力）
+        
         scroll_speed = -1
 
-        x, y = scroll_speed, 0   # ←基本は背景と同じ速度で左へ流される
+        x, y = scroll_speed, 0   
 
-        # 上下キーによる移動（背景に押されつつ上下する）
+        # 上に動く
         if key[pg.K_UP]:
             y = -1
+        # 下に動く
         if key[pg.K_DOWN]:
             y = 1
 
-        # 右キーを押したとき → 右へ動く（背景の流れを打ち消す）
+        #右に動く
         if key[pg.K_RIGHT]:
-            x = 2   # 背景の-1を打ち消して右方向へ移動
+            x = 2   
 
         kk_rct.move_ip(x, y)
-        # ---------------------
+       
 
         screen.blit(kk_img, kk_rct)
 
